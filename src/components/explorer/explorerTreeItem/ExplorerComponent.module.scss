@@ -1,0 +1,49 @@
+.treeItem {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    padding: 1.2rem 2rem;
+    justify-content: flex-start;
+
+    &:hover {
+        background: rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+    }
+
+    .treeItemName {
+        padding: 0 1rem;
+        margin-right: auto;
+    }
+
+    &.treeItemInner {
+        padding: 0 2rem;
+    }
+
+    .inventoryCounter {
+        background-color: rgb(33, 149, 243);
+        border-radius: 1.6rem;
+        min-width: 2rem;
+        height: 2rem;
+        text-align: center;
+        line-height: 1.5;
+        padding: 0 .5rem;
+        user-select: none;
+    }
+
+    .arrowIcon {
+        transform: rotate(-90deg);
+        transition: transform .05s linear;
+
+        &.arrowIconOpened {
+            transform: rotate(0);
+        }
+    }
+
+
+    .spacer {
+        background-color: #fff;
+        margin-right: 1rem;
+    }
+
+}
