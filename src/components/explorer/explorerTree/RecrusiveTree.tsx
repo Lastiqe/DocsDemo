@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import style from './RecrusiveTree.module.scss'
 import arrowIcon from '../../../assets/icons/angle-arrow-down.svg'
 import { TPlacesTree } from '../../../redux/types'
@@ -18,13 +18,20 @@ const RecrusiveTree: React.FC<TProps> = (props) => {
     const arrowIconOpened = `${style.arrowIcon} ${style.opened}`
     const listItemSelected = `${style.selected}`
 
-    const [isOpened, setNodeState] = useState(true)
+    const [isOpened, setNodeState] = useState(false)
     const [wrapperClasses, setWrapperClasses] = useState(wrapperClassesClosed)
     const [arrowIconClasses, setArrowIconClasses] = useState(arrowIconClosed)
     
     function openNode() {
-        setNodeState(!isOpened)
-        
+        setNodeState(true)
+        props.setSelectedPlaceAction(props.place)
+    }
+    const isFirstRun = useRef(true);
+    useEffect(() => {
+        if (isFirstRun.current) {
+            isFirstRun.current = false;
+            return
+        }
         if (!isOpened) {
             setArrowIconClasses(arrowIconClosed)
             setWrapperClasses(wrapperClassesOpened)
@@ -39,10 +46,10 @@ const RecrusiveTree: React.FC<TProps> = (props) => {
                 setWrapperClasses(wrapperClassesAnimated)
             }, 150)
         }
-    }
+    }, [!isOpened])
 
-    function setSelectedPlace() {
-        props.setSelectedPlaceAction(props.place)
+    function nodeToggle(): void {
+        setNodeState(!isOpened)
     }
 
     function renderTree(node: TPlacesTree) {
@@ -67,12 +74,12 @@ const RecrusiveTree: React.FC<TProps> = (props) => {
     return (
         props.place.parts
             ? <div className={`${style.treeLi} ${style.nodeLi}`}>
-                <span onClick={openNode} className={style.iconWrapper}>
+                <span className={style.iconWrapper} onClick={nodeToggle}>
                     <img src={arrowIcon}
                         className={arrowIconClasses}
                         alt="arrow" />
                 </span>
-                <span className={`${style.name} ${props.selectedPlace.id === props.place.id ? listItemSelected : ''}`} onClick={setSelectedPlace}>{props.place.name}
+                <span className={`${style.name} ${props.selectedPlace.id === props.place.id ? listItemSelected : ''}`} onClick={openNode}>{props.place.name}
                     {props.place.isFilled && <span className={style.filled}></span>}
                 </span>
                 <div className={wrapperClasses}>
@@ -80,7 +87,7 @@ const RecrusiveTree: React.FC<TProps> = (props) => {
                 </div>
             </div>
             : <div className={style.treeLi} >
-                <span className={`${style.name} ${props.selectedPlace.id === props.place.id ? listItemSelected : ''} `} onClick={setSelectedPlace}>{props.place.name}
+                <span className={`${style.name} ${props.selectedPlace.id === props.place.id ? listItemSelected : ''} `} onClick={openNode}>{props.place.name}
                     {props.place.isFilled && <span className={style.filled}></span>}
                 </span>
             </div>
