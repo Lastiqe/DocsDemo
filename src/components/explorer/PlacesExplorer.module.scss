@@ -1,0 +1,108 @@
+.explorer {
+    display: flex;
+    position: relative;
+    font-size: 1.6rem;
+    color: #eeeeee;
+    min-width: 30rem;
+    max-width: 30rem;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: transform .5s ease;
+    z-index: 1;
+
+    @media screen and (max-width : 1024px) {
+        position: absolute;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        box-shadow: none;
+        transform: translateX(-100%);
+    }
+
+    &.openedMobile {
+        @media screen and (max-width : 1024px) {
+            box-shadow: 15px 0px 160px -3px rgba(0, 0, 0, 0.91);
+            transform: translateX(0);
+        }
+    }
+
+    .menuOpenButtonWrapper {
+        display: none;
+        position: absolute;
+
+        transition: transform .3s ease .25s, opacity .25s ease;
+        z-index: -1;
+        transform: translateX(0);
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &.menuOpened {
+            transform: translateX(-100%);
+            transition: transform .3s ease;
+        }
+
+        @media screen and (max-width : 1024px) {
+            display: block;
+            right: -4rem;
+            top: 1.4rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            top: .8rem;
+        }
+
+
+    }
+
+    .menuCloseButtonWrapper {
+        display: none;
+        position: absolute;
+        right: 1.5rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 1024px) {
+            display: block;
+            top: 1.4rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            top: .8rem;
+        }
+    }
+
+    .explorerHeader {
+        padding: 0 2rem;
+        background-color: rgb(35, 47, 62);
+    }
+
+    .explorerBody {
+        position: relative;
+        font-size: 1.4rem;
+        padding: 1rem 0;
+        height: 100%;
+        background-color: rgb(27, 36, 48);
+    }
+
+    .placesTree {
+        padding: 0 1rem 2rem 3rem;
+        user-select: none;
+    }
+
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    .spinnerWrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+}

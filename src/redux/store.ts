@@ -3,17 +3,12 @@ import { fireBaseDataReducer } from './firebaseDataReducer'
 import thunk from 'redux-thunk';
 
 
-let reducers = combineReducers({
-    fireBaseDataReducer
+const reducers = combineReducers({
+    fireBase: fireBaseDataReducer
 })
 
-declare global {
-    interface Window { store: any; props: any; }
-}
-
-
+export type AppStateType = ReturnType<typeof reducers>
 
 const store = createStore(reducers, applyMiddleware(thunk));
 
-window.store = store
 export default store

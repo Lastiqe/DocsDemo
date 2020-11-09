@@ -1,0 +1,94 @@
+.viewComponent {
+    font-size: 14px;
+    background: rgb(247, 249, 252);
+    width: calc(100% - 30rem);
+    padding: 0 2rem 2rem 2rem;
+    min-height: calc(100vh - 2rem);
+
+    @media only screen and (max-width : 1024px) {
+        width: calc(100% - 10rem);
+        padding: 0 5rem 2rem 5rem;
+    }
+
+    @media only screen and (max-width : 480px) {
+        width: calc(100% - 2rem);
+        padding: 0 1rem 2rem 1rem;
+        margin: 0;
+    }
+
+
+
+    &.modalOpened {
+        overflow: hidden;
+        height: calc(100vh - 2rem);
+        top: 0;
+        right: 0;
+    }
+
+    .info {
+        font-size: 1.6rem;
+    }
+
+    .inventoryListWrapper {
+        padding: .5rem 0 1.5rem 0;
+        background-color: #fff;
+        width: 95%;
+        box-shadow: 0 0 1.4rem 0 rgba(53, 64, 82, 0.05);
+        border-radius: 1.5%;
+        margin: 0 auto;
+
+        @media only screen and (max-width : 1024px) {
+            width: 100%;
+            margin: 0;
+        }
+
+    }
+
+    .sectionTopRow {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3rem 2rem 3rem 0;
+    }
+
+    .inventoryListHeader {
+        font-size: 2rem;
+        padding: 0 2rem;
+
+        h4 {
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        @media only screen and (max-width : 768px) {
+            font-size: 1.8rem;
+        }
+    }
+
+    .inventoryList {
+        margin-top: 1rem;
+    }
+
+    h1 {
+        font-size: 2.8rem;
+
+        @media only screen and (max-width : 768px) {
+            font-size: 2.4rem;
+        }
+
+        @media screen and (max-width: 480px) {
+            padding: 0 1rem 0 4rem;
+        }
+    }
+
+    hr {
+        margin-bottom: 3rem;
+        opacity: .5;
+    }
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}

@@ -1,0 +1,43 @@
+.icon {
+    margin: 0 2rem;
+    position: relative;
+    transition: transform .2s ease;
+
+    img {
+        user-select: none;
+        width: 2.5rem;
+        position: relative;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        top: -1.2rem;
+        left: -1.3rem;
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        transition: transform .2s ease, background-color .3s ease;
+    }
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+
+        &:before {
+            background-color: #2196f3;
+            transform: scale(1.1);
+        }
+    }
+
+    &:active {
+        transform: scale(1);
+
+        &::before {
+            transform: scale(1);
+        }
+    }
+
+
+}

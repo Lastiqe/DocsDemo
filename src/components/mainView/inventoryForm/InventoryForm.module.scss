@@ -1,0 +1,207 @@
+.form {
+    opacity: 0;
+
+    label {
+        opacity: .6;
+        transition: color .25s ease;
+    }
+
+    input {
+        width: auto;
+        transition: border-color .25s ease;
+    }
+}
+
+.form.modalWrapper {
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+
+    .inputWrapper {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 0;
+        font-size: 1.2rem;
+
+        &.error {
+            color: red;
+
+            label {
+                opacity: 1;
+            }
+
+            input {
+                border-color: red;
+                font-size: 1.8rem;
+            }
+        }
+    }
+
+    input {
+        outline: none;
+        border: none;
+        font-size: 1.8rem;
+        padding-top: .3rem;
+        border-bottom: 1px solid rgb(35, 47, 62);
+        width: 100%;
+
+        &::placeholder {
+            font-size: 1.4rem;
+        }
+    }
+
+    .buttonsWrapper {
+        margin-top: 2rem;
+        align-self: center;
+    }
+}
+
+.form.listItemParamsWrapper {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    opacity: 1;
+
+    .inputWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        &.error {
+            color: red;
+
+            label {
+                opacity: 1;
+            }
+
+            input {
+                border-color: red;
+            }
+        }
+
+        input {
+            font-size: 1.6rem;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: 1px solid #232f3e;
+            outline: none;
+
+
+            @media only screen and (max-width : 768px) {
+                font-size: 1.4rem;
+            }
+
+            @media only screen and (max-width : 480px) {
+                width: 12rem
+            }
+
+            &:disabled {
+                color: black;
+                border-color: rgba(0, 0, 0, 0);
+                background-color: #fff;
+                text-overflow: ellipsis;
+            }
+
+            &[name=count] {
+                width: 50%;
+            }
+        }
+
+        .textWrapper.disabled {
+            &:hover {
+                background-color: red;
+
+                .fullText {
+                    opacity: 1;
+                    box-shadow: 0px 0px 200px -38px rgba(0, 0, 0, 0.80),
+                        1px 0px 38px -7px rgba(0, 0, 0, 0.19);
+                    transform: translateY(0)
+                }
+            }
+        }
+
+        .fullText {
+            opacity: 0;
+            position: absolute;
+            top: -1rem;
+            left: 0;
+            border-radius: .5rem;
+            background-color: #fff;
+            padding: .5rem 1rem;
+            margin-left: -1rem;
+            z-index: 1;
+            transition: opacity .15s ease, transform .25s ease;
+            transform: translateY(1rem);
+
+            @media only screen and (max-width : 768px) {
+                font-size: 1.2rem;
+            }
+        }
+
+        label {
+            font-size: 1.2rem;
+            margin-bottom: .5rem;
+            padding-left: .2rem;
+
+            @media only screen and (max-width : 768px) {
+                font-size: 1rem;
+            }
+        }
+
+        &:first-of-type {
+            margin-right: 4rem;
+
+            @media only screen and (max-width : 768px) {
+                margin-right: 1rem;
+            }
+        }
+
+
+    }
+
+    .buttonsWrapper {
+        display: flex;
+        position: absolute;
+        right: -7rem;
+        bottom: -1rem;
+        flex-direction: column-reverse;
+    }
+
+}
+
+
+
+.formButton {
+    border: none;
+    padding: .5rem 2rem;
+    font-size: 1.4rem;
+    outline: none;
+    border-radius: .5rem;
+    transition: transform .1s ease, background-color .2s ease;
+
+    &.submit {
+        color: white;
+        background-color: rgb(23, 105, 170);
+
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(17, 82, 147);
+        }
+    }
+
+    &.cancel {
+        background-color: #e0e0e0;
+        color: black;
+        margin-bottom: 1rem;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #d5d5d5
+        }
+    }
+
+    &:active {
+        transform: scale(0.96);
+    }
+}

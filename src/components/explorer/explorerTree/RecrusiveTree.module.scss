@@ -1,0 +1,82 @@
+.nodeLi {
+    padding: .5rem 0 0 0;
+}
+
+.treeLi {
+    padding: .5rem 0;
+    max-width: 20rem;
+    position: relative;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    span {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+
+
+}
+
+.name {
+    position: relative;
+    display: block;
+
+    &.selected {
+        text-decoration: underline;
+    }
+}
+
+.filled {
+    display: inline-block;
+    position: absolute;
+    width: .8rem;
+    height: .8rem;
+    top: .4rem;
+    right: -5rem;
+    border-radius: 50%;
+    background-color: rgb(33, 150, 243);
+    transition: transform 0s ease, opacity .15s ease .05s;
+}
+
+.iconWrapper {
+    position: absolute;
+    left: -1.4rem;
+    display: inline-block;
+
+    .arrowIcon {
+        width: 1rem;
+        transform: rotate(-90deg);
+        transition: transform .2s ease;
+
+        &.opened {
+            transform: rotate(0);
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.detailsWrapper {
+    display: block;
+    transform: translateX(2rem);
+    padding-left: 1rem;
+    opacity: 0;
+    transition: transform .2s ease, opacity .15s ease .05s;
+
+}
+
+.detailsWrapper.closed {
+    display: none;
+}
+
+.detailsWrapperAnimated {
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform .2s ease, opacity .15s ease .05s;
+}
