@@ -1,46 +1,22 @@
-# Getting Started with Create React App
+Описание задания: 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Существует некоторая крупная организация.
+Физически эта организация располагается в нескольких зданиях, каждое здание состоит из комнат.
+В каждой комнате может располагаться некоторое оборудование.
 
-## Available Scripts
+Задача:
 
-In the project directory, you can run:
+Необходимо создать клиент приложения, для просмотра редактирования оборудования в зданиях компании. 
+Приложение состоит из двух панелей - в левой части можно будет просмотреть иерархию зданий/комнат, а в правой части – просмотреть имеющееся в этом здании или комнате оборудование. При выборе комнаты справа отображается оборудование комнаты, при выборе здания – оборудование всех его комнат. Комнаты здания описаны в виде иерархической структуры, где есть этажи, крылья и т.д. (см. пример тестовых данных). Возле каждого здания и комнаты в левой части следует располагать индикатор, находится ли в нем/ней оборудование.
 
-### `yarn start`
+Оборудование характеризуется наименованием и количеством. Должна быть возможность работать с оборудованием в выбранной комнате: добавлять, редактировать, удалять.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Подзадачи
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Выполнение даже одной подзадачи будет оценено.
 
-### `yarn test`
+1. Отображение иерархии зданий и комнат. Загрузить с сервера и отобразить дерево зданий и комнат. Обеспечить возможность выбора зданий и комнат щелчком мышью.
+2. Отображение оборудования. При выборе комнаты показывать оборудование для этой комнаты в правой панели. Показывать значок рядом с именем здания/комнаты, есть ли оборудование именно в выбранной комнате.
+3. Отображение оборудования в зданиях, этажах и т.д. При выборе здания, этажа, крыла  - показывать оборудование, которое есть в выбранном узле, так в дочерних.
+4. Редактирование оборудования. Если выбрана комната, которая не имеет дочерних узлов (не этаж, не крыло), то обеспечить возможность добавлять, редактировать и удалять оборудование.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
